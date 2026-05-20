@@ -76,8 +76,8 @@
 // Type definitions for the specific machine based on the word size.
 #ifndef MICROPY_OBJ_REPR
 #ifdef __LP64__
-typedef long mp_int_t; // must be pointer size
-typedef unsigned long mp_uint_t; // must be pointer size
+//typedef intptr_t mp_int_t; // must be pointer size
+//typedef uintptr_t mp_uint_t; // must be pointer size
 #else
 // These are definitions for machines where sizeof(int) == sizeof(void*),
 // regardless of actual size.
