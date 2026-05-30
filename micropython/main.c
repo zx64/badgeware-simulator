@@ -73,12 +73,21 @@ void smemtrack_free(void* ptr, void* user_data) {
 }
 
 static void recalculate_render_sizes(void) {
-    state.badgeware.render_size.y = window_size.y;
-    state.badgeware.render_size.x = (state.badgeware.render_size.y / state.badgeware.buffer_size.y) * state.badgeware.buffer_size.x;
+    if (window_size.x > window_size.y) {
+        state.badgeware.render_size.y = window_size.y;
+        state.badgeware.render_size.x = (state.badgeware.render_size.y / state.badgeware.buffer_size.y) * state.badgeware.buffer_size.x;
 
-    state.debug.render_size.y = window_size.y;
-    state.debug.render_size.x = (state.debug.render_size.y / state.debug.buffer_size.y) * state.debug.buffer_size.x;
-    state.debug.render_size.x += 1;
+        state.debug.render_size.y = window_size.y;
+        state.debug.render_size.x = (state.debug.render_size.y / state.debug.buffer_size.y) * state.debug.buffer_size.x;
+        state.debug.render_size.y += 1;
+    } else {
+        state.badgeware.render_size.x = window_size.x;
+        state.badgeware.render_size.y = (state.badgeware.render_size.x / state.badgeware.buffer_size.x) * state.badgeware.buffer_size.y;
+
+        state.debug.render_size.x = window_size.x;
+        state.debug.render_size.y = (state.debug.render_size.x / state.debug.buffer_size.x) * state.debug.buffer_size.y;
+        state.debug.render_size.y += 1;
+    }
 }
 
 static void display_reinit(void) {
