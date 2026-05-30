@@ -21,6 +21,8 @@ set(MICROPY_PY_TERMIOS 0)
 # Subset of CPython socket module
 set(MICROPY_PY_SOCKET 0)
 
+set(MICROPY_PY_JSON 1)
+
 # ffi module requires libffi (libffi-dev Debian package)
 set(MICROPY_PY_FFI 1)
 
