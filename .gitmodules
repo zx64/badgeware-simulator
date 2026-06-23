@@ -1,7 +1,7 @@
 [submodule "lib/micropython"]
 	path = lib/micropython
-	url = https://github.com/micropython/micropython
-	branch = tags/v1.26.0
+	url = https://github.com/zx64/micropython
+	branch = newer_mbed_tls
 [submodule "lib/dmon"]
 	path = lib/dmon
 	url = https://github.com/gadgetoid/dmon
